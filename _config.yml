@@ -9,7 +9,7 @@ exclude:
   - "/vendor/"
 
 # Site settings
-title: Rambles about Electronics and Engineering
+title: "EE rambles"
 subtitle: "Home page"
 #email: blcentra@gmail.com
 name: Victoria Polda
