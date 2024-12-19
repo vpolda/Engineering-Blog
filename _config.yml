@@ -24,6 +24,7 @@ url: "https://vpolda.github.io" # the base hostname & protocol for your site
 cover: "/assets/header_image.jpg"
 logo: "/assets/logo.png"
 
+
 # Build settings
 markdown: kramdown
 inter_post_navigation: false
