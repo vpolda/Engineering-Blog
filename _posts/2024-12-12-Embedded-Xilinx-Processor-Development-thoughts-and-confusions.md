@@ -15,15 +15,15 @@ I can't seem to grasp the intricacies of the built in Xilinx drivers and code. T
 For example, why does examples of the VDMA either use the XScuGIC dedicated interrupts or software based callbacks or a combo for interrupts from the VDMA IP module? 
 The answer lies in the Xilinx code (and probably what people want to do or something else I'm missing). 
 
-In depth looks
-XScuGIC (Xilinx Self-Contained General Interrupt Controller): This proprietary hardware from Xilinx based driver receives interrupts from the PL and then calls functions in the PS. 
+First, I would like to look at the XScuGIC (Xilinx Self-Contained General Interrupt Controller). This proprietary hardware driver from Xilinx receives interrupts from the PL and then calls functions in the PS. 
 
 The following shows what steps are done to get this driver racing:
+
 Interrupt Controller Initialization: 
  - uses XScuGic_CfgInitialize() function
  - provides a reference to the interrupt controller instance and configuration settings based on the hardware address in the xparameters.h file
 
-Interrupt Sources Configuration: 
+Interrupt Sources Connection: 
  - Uses XScuGIC_Connect() function to connect PL to PS interrupts to a function contained in the program
  - This has to happen for each channel, like read and write
  - If using the Xilinx included XAxiVdma_WriteIntrHandler, this takes care of connecting your ISR and other back side work. You can simply add your code the the callback functions. These are not software based ones! That was my confusion.
