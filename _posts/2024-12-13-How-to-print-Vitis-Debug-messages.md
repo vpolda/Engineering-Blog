@@ -19,13 +19,13 @@ add -DDEBUG to the "proc_extra_compiler_flags"
 
 ## What it's doing
 Appends the flag "DDEBUG" to the compiler which tells it to compile those relevant commands, like xdbg_printf, into assembly and then later binary machine code. 
-It is recommended to use an:
+It is recommended to use an ifdef to only enable the debug statements when DEBUG is enabled and defined:
 ```c
 #ifdef DEBUG
     xdbg_printf("Debugging is enabled!\n");
 #endif
 ```
-This is done to output the debug statements only if debug is enabled. The preprocessor handles these statements.
+The preprocessor handles these statements, and this code is only compiled if enabled.
 
-## Conclusion
+# Conclusion
 Hope someone found this helpful. Simply remove the flag for a final build.
