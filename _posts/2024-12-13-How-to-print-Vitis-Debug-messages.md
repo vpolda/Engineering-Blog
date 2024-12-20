@@ -14,7 +14,7 @@ print to your active debug programming port.
 
 ## How to enable
 add -DDEBUG to the "proc_extra_compiler_flags"
-![where_to_add_DDEBUG_flag]({{site.baseurl}}/assets/_posts/2024-12-13-How-to-print-Vitis-Debug-messages/where_to_add_DDEBUG_flag.PNG)
+![where_to_add_DDEBUG_flag](/Engineering-Blog/assets/_posts/2024-12-13-How-to-print-Vitis-Debug-messages/where_to_add_DDEBUG_flag.PNG)
 
 
 ## What it's doing
