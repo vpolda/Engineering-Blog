@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-12-19T20:52:58-07:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Your awesome title</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Welcome to Jekyll!</title><link href="http://localhost:4000/jekyll/update/2024/12/19/welcome-to-jekyll.html" rel="alternate" type="text/html" title="Welcome to Jekyll!" /><published>2024-12-19T20:33:08-07:00</published><updated>2024-12-19T20:33:08-07:00</updated><id>http://localhost:4000/jekyll/update/2024/12/19/welcome-to-jekyll</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2024/12/19/welcome-to-jekyll.html"><![CDATA[<p>You’ll find this post in your <code class="language-plaintext highlighter-rouge">_posts</code> directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run <code class="language-plaintext highlighter-rouge">jekyll serve</code>, which launches a web server and auto-regenerates your site when a file is updated.</p>
+
+<p>Jekyll requires blog post files to be named according to the following format:</p>
+
+<p><code class="language-plaintext highlighter-rouge">YEAR-MONTH-DAY-title.MARKUP</code></p>
+
+<p>Where <code class="language-plaintext highlighter-rouge">YEAR</code> is a four-digit number, <code class="language-plaintext highlighter-rouge">MONTH</code> and <code class="language-plaintext highlighter-rouge">DAY</code> are both two-digit numbers, and <code class="language-plaintext highlighter-rouge">MARKUP</code> is the file extension representing the format used in the file. After that, include the necessary front matter. Take a look at the source for this post to get an idea about how it works.</p>
+
+<p>Jekyll also offers powerful support for code snippets:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">print_hi</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
+  <span class="nb">puts</span> <span class="s2">"Hi, </span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+<span class="n">print_hi</span><span class="p">(</span><span class="s1">'Tom'</span><span class="p">)</span>
+<span class="c1">#=&gt; prints 'Hi, Tom' to STDOUT.</span></code></pre></figure>
+
+<p>Check out the <a href="https://jekyllrb.com/docs/home">Jekyll docs</a> for more info on how to get the most out of Jekyll. File all bugs/feature requests at <a href="https://github.com/jekyll/jekyll">Jekyll’s GitHub repo</a>. If you have questions, you can ask them on <a href="https://talk.jekyllrb.com/">Jekyll Talk</a>.</p>]]></content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html"><![CDATA[You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run jekyll serve, which launches a web server and auto-regenerates your site when a file is updated.]]></summary></entry><entry><title type="html">How to print Vitis Debug messages in Baremetal applications</title><link href="http://localhost:4000/software/2024/12/13/How-to-print-Vitis-Debug-messages.html" rel="alternate" type="text/html" title="How to print Vitis Debug messages in Baremetal applications" /><published>2024-12-13T11:00:00-07:00</published><updated>2024-12-13T11:00:00-07:00</updated><id>http://localhost:4000/software/2024/12/13/How-to-print-Vitis-Debug-messages</id><content type="html" xml:base="http://localhost:4000/software/2024/12/13/How-to-print-Vitis-Debug-messages.html"><![CDATA[<p>How to have statements like:</p>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">xdbg_printf</span><span class="p">(</span><span class="n">XDBG_DEBUG_ERROR</span><span class="p">,</span> <span class="s">"Read channel reset failed %x</span><span class="se">\n\r</span><span class="s">"</span><span class="p">,</span> <span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span><span class="p">)</span><span class="n">XAxiVdma_ChannelGetStatus</span><span class="p">(</span><span class="n">RdChannel</span><span class="p">));</span>
+</code></pre></div></div>
+<p>print to your active debug programming port.</p>
+
+<h2 id="how-to-enable">How to enable</h2>
+<p>add -DDEBUG to the “proc_extra_compiler_flags”
+<img src="/assets/_posts/2024-12-13-How-to-print-Vitis-Debug-messages/where_to_add_DDEBUG_flag.PNG" alt="where_to_add_DDEBUG_flag" /></p>
+
+<h2 id="what-its-doing">What it’s doing</h2>
+<p>Appends the flag “DDEBUG” to the compiler which tells it to compile those relevant commands, like xdbg_printf, into assembly and then later binary machine code. 
+It is recommended to use an:</p>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#ifdef DEBUG
+</span>    <span class="n">xdbg_printf</span><span class="p">(</span><span class="s">"Debugging is enabled!</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+<span class="cp">#endif
+</span></code></pre></div></div>
+<p>This is done to output the debug statements only if debug is enabled. The preprocessor handles these statements.</p>]]></content><author><name>Victoria Polda</name></author><category term="Software" /><summary type="html"><![CDATA[How to have statements like: xdbg_printf(XDBG_DEBUG_ERROR, "Read channel reset failed %x\n\r", (unsigned int)XAxiVdma_ChannelGetStatus(RdChannel)); print to your active debug programming port.]]></summary></entry><entry><title type="html">Embedded Xilinx Processor Development: Thoughts and Confusions</title><link href="http://localhost:4000/software/2024/12/12/Embedded-Xilinx-Processor-Development-thoughts-and-confusions.html" rel="alternate" type="text/html" title="Embedded Xilinx Processor Development: Thoughts and Confusions" /><published>2024-12-12T09:00:00-07:00</published><updated>2024-12-12T09:00:00-07:00</updated><id>http://localhost:4000/software/2024/12/12/Embedded-Xilinx-Processor-Development-thoughts-and-confusions</id><content type="html" xml:base="http://localhost:4000/software/2024/12/12/Embedded-Xilinx-Processor-Development-thoughts-and-confusions.html"><![CDATA[<p>I have been working with AXI Video Direct Memory Access (VDMA or video DMA) for my RTL Edge detection and live video processing project. The problem I am running into, is understanding the C code and what is happening.</p>
+
+<p>For reference, I am solid in C and CPP, and have plenty of school experience working with it. More advanced application elude me but I am comfortable for the most part. In this post, I want to go through some of my complaints with the resources out there as well as documenting some of my issues and covering what I wish I had seen.</p>
+
+<p>I can’t seem to grasp the intricacies of the built in Xilinx drivers and code. Tutorials out there simply give you the TCL script to generate the program or only hand you the example code. I have yet to find some that explain what is going on beside a few rare gems like this blog by Lauri Vosandi: https://lauri.võsandi.com/posts.html (thank you!). Me and my googling skills are probably to blame here. So I have been going through it with ChatGPT to try and understand what is actually happening. Using Xilinx code is in theory optional, difficult, but optional. And many of the examples out there show some of the different ways code can be developed or integrated with Xilinx’s. These leads to a mess for me. Trying to sort through to find what is NEEDED for any driver, instead of mindlessly copying their code.</p>
+
+<p>For example, why does examples of the VDMA either use the XScuGIC dedicated interrupts or software based callbacks or a combo for interrupts from the VDMA IP module? 
+The answer lies in the Xilinx code (and probably what people want to do or something else I’m missing).</p>
+
+<p>First, I would like to look at the XScuGIC (Xilinx Self-Contained General Interrupt Controller). This proprietary hardware driver from Xilinx receives interrupts from the PL and then calls functions in the PS.</p>
+
+<p>The following shows what steps are done to get this driver racing:</p>
+
+<p>Interrupt Controller Initialization:</p>
+<ul>
+  <li>uses XScuGic_CfgInitialize() function</li>
+  <li>provides a reference to the interrupt controller instance and configuration settings based on the hardware address in the xparameters.h file</li>
+</ul>
+
+<p>Interrupt Sources Connection:</p>
+<ul>
+  <li>Uses XScuGIC_Connect() function to connect PL to PS interrupts to a function contained in the program</li>
+  <li>This has to happen for each channel, like read and write</li>
+  <li>If using the Xilinx included XAxiVdma_WriteIntrHandler, this takes care of connecting your ISR and other back side work. You can simply add your code the the callback functions. These are not software based ones! That was my confusion.</li>
+</ul>
+
+<p>Enable Interrupts:</p>
+<ul>
+  <li>Uses the XScuGIC_Enable() function</li>
+  <li>This allows the interrupt controller to start receiving and handling interrupts from the configured sources</li>
+</ul>
+
+<p>Exception Handling: In some cases, you need to configure an exception handler for interrupts that do not have a specific ISR. This ensures that no interrupts are left unhandled. 
+It follows three steps:</p>
+<ul>
+  <li>Xil_ExceptionInit()</li>
+  <li>Xil_ExceptionRegisterHandler()</li>
+  <li>Xil_ExceptionEnable()</li>
+</ul>]]></content><author><name>Victoria Polda</name></author><category term="Software" /><summary type="html"><![CDATA[I have been working with AXI Video Direct Memory Access (VDMA or video DMA) for my RTL Edge detection and live video processing project. The problem I am running into, is understanding the C code and what is happening.]]></summary></entry></feed>
