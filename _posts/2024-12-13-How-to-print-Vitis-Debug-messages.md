@@ -5,7 +5,7 @@ date:   2024-12-13T13:00:00-05:00
 author: Victoria Polda
 categories: Software
 ---
-
+# How to print debug statements to the serial terminal
 How to have statements like:
 ```c
 xdbg_printf(XDBG_DEBUG_ERROR, "Read channel reset failed %x\n\r", (unsigned int)XAxiVdma_ChannelGetStatus(RdChannel));
@@ -26,3 +26,6 @@ It is recommended to use an:
 #endif
 ```
 This is done to output the debug statements only if debug is enabled. The preprocessor handles these statements.
+
+## Conclusion
+Hope someone found this helpful. Simply remove the flag for a final build.
