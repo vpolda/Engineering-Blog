@@ -3,7 +3,7 @@ layout: post
 title:  "Embedded Xilinx Processor Development: Thoughts and Confusions"
 date:   2024-12-12T11:00:00-05:00
 author: Victoria Polda
-categories: Software
+categories: Xilinx
 ---
 
 I have been working with AXI Video Direct Memory Access (VDMA or video DMA) for my RTL Edge detection and live video processing project. The problem I am running into, is understanding the C code and what is happening. 

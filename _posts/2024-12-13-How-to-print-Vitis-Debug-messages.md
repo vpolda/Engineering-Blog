@@ -16,6 +16,7 @@ print to your active debug programming port.
 add -DDEBUG to the "proc_extra_compiler_flags"
 ![where_to_add_DDEBUG_flag](/Engineering-Blog/assets/posts/2024-12-13-How-to-print-Vitis-Debug-messages/where_to_add_DDEBUG_flag.PNG)
 
+Make sure to add it in the Standalone BSP, not the FSBL BSP.
 
 ## What it's doing
 Appends the flag "DDEBUG" to the compiler which tells it to compile those relevant commands, like xdbg_printf, into assembly and then later binary machine code. 
