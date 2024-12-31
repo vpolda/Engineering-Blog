@@ -21,7 +21,7 @@ But, if the DDR is solely attached through the PS dedicated DDR ports, then the 
 
 ## Basic video data example through PS
 
-``` mermaid
+```mermaid
 graph LR 
     subgraph PL
         VideoIn --> VDMA
