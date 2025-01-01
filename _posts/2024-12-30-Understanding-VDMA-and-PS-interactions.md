@@ -5,7 +5,6 @@ date:   2024-12-30T13:00:00-05:00
 author: Victoria Polda
 categories: Firmware
 ---
-{% include mermaid.html %}
 
 # Introduction
 This blog covers the VDMA (and partly then DMA) and how it works and interacts with the processing system. I found this topic confusing and struggled to find resources that helped my understanding.
