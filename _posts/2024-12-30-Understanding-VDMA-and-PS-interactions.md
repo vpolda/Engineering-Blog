@@ -25,19 +25,20 @@ But, if the DDR is solely attached through the PS dedicated DDR ports, then the 
 ```mermaid
 graph LR 
     subgraph PL
-        VideoIn --> VDMA
-        VDMA --> VideoOut
+        VideoIn -- AXIS --> VDMA
+        VDMA -- AXIS --> VideoOut
     end
-    VDMA <--> HP_AXI
+    VDMA -- AXI_MM <--> HP_AXI
     subgraph PS
         HP_AXI <--> DDR_MEM_CTLR
 
         subgraph APU
-            AXI_LITE_config --> VDMA
+            Config -- AXI_LITE --> VDMA
         end
     end
 
     DDR_MEM_CTLR <--> DDR
+
 ```
 
 This diagram shows the basic flow of video data throughout the SOC. 
