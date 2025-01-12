@@ -52,5 +52,6 @@ I initially pieced together this process with the help of ChatGPT, examples, and
  - Understand what the PS is capable, what is memory mapped already?
  - Focus on defining what your software on the PS must be capable of
  - Walk through the examples and tests for the software with a test hardware setup (ie. Loopback)
+ - Understand valid DDR ranges for storing your video data
 
 # Conclusion
