@@ -10,10 +10,13 @@ main_nav: true
 # About me
 
 Hi there! 👋 I'm Victoria Polda, an engineer passionate about exploring the fascinating intersection of hardware and software. With a background in systems engineering, firmware development, and FPGA design, I’m constantly diving into how technology works—from the high-level architecture down to the tiniest bit of assembly code and finally the physics that make it all possible.
+I also love a variety of side hobbies like 3d printing and art, which I will be including in this blog.
 
 # My Mission
 
 I started this blog to share my journey as I explore, learn, and grow in the ever-evolving world of engineering. My goal is to break down complex topics, share practical insights, and hopefully inspire others along the way. Whether it’s debugging an AXI interface, designing data-driven hardware systems, or understanding the nuances of embedded programming, I’m here to document it all.
+
+I have also added a 3D printing section to document my printing adventures! 
 
 # Why I Blog
 
